@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FFFFFF; /* swissWhitePure */
+    --foreground: #000000; /* swissBlack */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #000000; /* swissBlack */
+      --foreground: #FFFFFF; /* swissWhitePure */
+    }
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Clear any default margins */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Universal box sizing */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    /* Eliminate borders and specific outlines as part of minimal aesthetics */
+    border-color: #E2E8F0; /* swissSlateLight for structural borders if explicitly used */
+  }
+
+  /* Minimal focus outlines for accessibility without clutter */
+  *:focus-visible {
+    outline: 1px solid var(--foreground);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Helper to demonstrate strict grid usage in debugger if needed */
+  .grid-debug {
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent calc(100% / 12 - 1px),
+      rgba(255, 0, 0, 0.1) calc(100% / 12 - 1px),
+      rgba(255, 0, 0, 0.1) calc(100% / 12)
+    );
+  }
+}
